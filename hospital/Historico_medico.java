@@ -1,20 +1,33 @@
-package LPM_ATV_1.hospital;
+package hospital;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Historico_medico {
-    class Consulta {
-        String medico;
-        String paciente;
-        Date data;
-        String motivo;
+    private ArrayList<Consulta> consultasAnteriores;
+    private String cirurgias;
+    private String medicamentos;
 
-        public Consulta(String medico, String paciente, Date data, String motivo) {
-            this.medico = medico;
-            this.paciente = paciente;
-            this.data = data;
-            this.motivo = motivo;
-        }
-        
+    public Historico_medico(String cirurgias, String medicamentos, ArrayList<Consulta> consultasAnteriores) {
+        this.cirurgias = cirurgias;
+        this.medicamentos = medicamentos;
+        this.consultasAnteriores = consultasAnteriores;
     }
+
+    public String getCirurgias() {
+        return cirurgias;
+    }
+
+    public void setCirurgias(String cirurgias) {
+        this.cirurgias = cirurgias;
+    }
+
+    public String getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(String medicamentos) {
+        this.medicamentos = medicamentos;
+    }
+
 }

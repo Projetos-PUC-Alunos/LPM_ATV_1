@@ -1,4 +1,4 @@
-package LPM_ATV_1.hospital;
+package hospital;
 // import jLPM_ATV_1.hospitalList;
 // import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class App {
         ArrayList<Usuario> usuarios = new ArrayList<>() {
             {
                 addAll(alunosList);
-                addAll(professores);    
+                addAll(professores);
             }
         };
 

@@ -16,7 +16,7 @@ public class Aluno {
 
     public String getName() {
         return name;
-    }
+    }   
 
     public Date getBirth() {
         return birth;

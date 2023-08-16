@@ -1,4 +1,4 @@
-package LPM_ATV_1.hospital;
+package hospital;
 
 import java.io.Serializable;
 import java.util.ArrayList;
