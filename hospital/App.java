@@ -18,7 +18,7 @@ public class App {
         ArrayList<Usuario> usuarios = new ArrayList<>() {
             {
                 addAll(alunosList);
-                addAll(professores);
+                addAll(professores);    
             }
         };
 
