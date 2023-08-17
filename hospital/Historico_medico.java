@@ -30,4 +30,12 @@ public class Historico_medico {
         this.medicamentos = medicamentos;
     }
 
+    public ArrayList<Consulta> getConsultasAnteriores() {
+        return consultasAnteriores;
+    }
+
+    public void setConsultasAnteriores(ArrayList<Consulta> consultasAnteriores) {
+        this.consultasAnteriores = consultasAnteriores;
+    }
+
 }
