@@ -1,9 +1,9 @@
 package hospital;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Date;
-import LPM_ATV_1.hospital.Info_pessoal;
-import LPM_ATV_1.hospital.Historico_medico;
+// import LPM_ATV_1.hospital.Info_pessoal;
+// import LPM_ATV_1.hospital.Historico_medico;
 
 public class PerfilPaciente extends Info_pessoal {
     private Historico_medico historicoMedico;

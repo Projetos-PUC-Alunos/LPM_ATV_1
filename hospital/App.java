@@ -1,90 +1,86 @@
 package hospital;
-// import jLPM_ATV_1.hospitalList;
-// import java.util.Scanner;
 
-import LPM_ATV_1.hospital.Departamento;
-import Professor.Professor;
-import Serializer.DataDeserializer;
-// import Serializer.PopulateData;
-import Usuario.Usuario;
+// import jLPM_ATV_1.hospitalList;
+import java.util.Scanner;
+
+import Estudante.Aluno;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // PopulateData.populate();
-        ArrayList<Departamento> Departamentos = DataDeserializer.deserialize("data_Departamentos.ser");
-        ArrayList<Aluno> alunos = DataDeserializer.deserialize("data_alunos.ser");
-        ArrayList<Aluno> alunosList = alunos;
-        ArrayList<Professor> professores = DataDeserializer.deserialize("data_professores.ser");
-        ArrayList<Usuario> usuarios = new ArrayList<>() {
-            {
-                addAll(alunosList);
-                addAll(professores);
-            }
-        };
+        int op = -1;
+        int paciente_id;
+        Random gerador = new Random(19700621);
+        Scanner input = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Id: ");
-        String id = scanner.nextLine();
-        System.out.print("Senha: ");
-        String senha = scanner.nextLine();
+        while (op != 0) {
+            System.out.printf(
+                    "********** Hospital **********\n1 - Cadastrar novo paciente\n2 - Atualizar dados do paciente\n3 - Cadastrar médico\n4 - Nova consulta\n5 - Visualizar consultas do médico\n6 - Cancelar consulta\n7 - Adicionar estoque\n8 - Visualizar estoque\n\t ESCOLHA UMA OPÇÃO: ");
+            op = input.nextInt();
+            switch (op) {
+            case 1:
+            int pac_id;
+            String pac_nome;
+            String pac_nascimento;
+            String pac_sangue;
+            String pac_alergia;
 
-        Usuario usuarioLogado = null;
-        for (Usuario usuario : usuarios) {
-            if (String.valueOf(usuario.getId()).equals(id) && usuario.getSenha().equals(senha)) {
-                usuarioLogado = usuario;
-                break;
-            }
-        }
+            System.out.print("Insira o nome completo: ");
+            pac_nome = input.nextLine();
+            System.out.print("Digite a data de nascimento: (dd/mm/yyyy) ");
+            pac_nascimento = input.nextLine();
+            System.out.print("Digite o tipo sanguineo");
+            pac_sangue = input.nextLine();
+            System.out.println("Digite o tipo de alergia do paciente, caso não há precione enter");
+            pac_alergia = input.nextLine();
 
-        if (usuarioLogado == null) {
-            System.out.println("Erro ao fazer login!");
-        } else {
-            System.out.println("Bem vindo, " + usuarioLogado.getNome() + "! \n");
-            if (usuarioLogado instanceof Aluno) {
-                Aluno aluno = (Aluno) usuarioLogado;
-                System.out.println("Creditos: " + aluno.getCreditos() + " / " + aluno.getTotalCreditos() + "\n");
-                aluno.listarDepartamentos(Departamentos, professores);
+            Date data = new SimpleDateFormat("dd/MM/yyyy").parse(pac_nascimento);
+            pac_id = Math.abs(gerador.nextInt());
 
-                int op = 2;
+            PerfilPaciente perfilPaciente = new PerfilPaciente(pac_id, pac_nome, pac_nascimento, pac_sangue, pac_alergia);
+            perfilPaciente.toString();
+            break;
+            case 2:
+            // System.out.print("Matricula do aluno: ");
+            // matricula = input.nextInt();
 
-                do {
-                    System.out.println("1 - Matricular em Departamento");
-                    System.out.println("0 - Sair");
-                    System.out.print("Opcao: ");
-                    op = scanner.nextInt();
-                    scanner.nextLine();
-                    if (op == 1) {
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
-                        System.out
-                                .println("Creditos: " + aluno.getCreditos() + " / " + aluno.getTotalCreditos() + "\n");
-                        System.out.println("Departamentos disponiveis:");
-                        for (Departamento Departamento : Departamentos) {
-                            System.out.println("  - " + Departamento.getId() + ": " + Departamento.getNome() + " ("
-                                    + Departamento.getCreditos()
-                                    + " Creditos)");
-                        }
-                        System.out.print("Id da Departamento: ");
-                        int DepartamentoId = scanner.nextInt();
-                        scanner.nextLine();
-                        aluno.matricularDepartamento(DepartamentoId, Departamentos, alunos);
-                        Departamentos = DataDeserializer.deserialize("data_Departamentos.ser");
-                        alunos = DataDeserializer.deserialize("data_alunos.ser");
+            // Aluno infoAluno = alunoList.getStudentByRegistrationNumber(matricula);
+            // if (infoAluno != null) {
+            // System.out.print("Insira o nome completo: ");
+            // name = input.nextLine();
+            // name = input.nextLine();
 
-                        for (Usuario usuario : usuarios) {
-                            if (String.valueOf(usuario.getId()).equals(id) && usuario.getSenha().equals(senha)) {
-                                usuarioLogado = usuario;
-                                break;
-                            }
-                        }
-                    }
-                } while (op != 0);
-            } else if (usuarioLogado instanceof Professor) {
-                Professor professor = (Professor) usuarioLogado;
-                professor.listarDepartamentos(Departamentos, alunos);
+            // System.out.print("Digite a data de nascimento (dd/mm/yyyy): ");
+            // nascimento = input.nextLine();
+
+            // alunoList.updateStudentInfo(matricula, name,
+            // (new SimpleDateFormat("dd/MM/yyyy").parse(nascimento)));
+            // System.out.println("\n--- Informação de aluno atualizado com sucesso!
+            // ---\n");
+            // } else {
+            // System.out.println("\n--- Aluno com a matricula " + matricula + " não foi
+            // encontrado. ---\n");
+            // }
+            break;
+            case 3:
+            // System.out.print("Digite o número de matrícula do aluno: ");
+            // matricula = input.nextInt();
+            // alunoList.removeStudent(matricula);
+            // break;
+            // case 4:
+            // List<Aluno> alunosList = alunoList.getAllStudents();
+            // for (Aluno estudante : alunosList) {
+            // System.out.println(estudante);
+            // System.out.println("--------------------");
+            // }
+            break;
             }
         }
 
-        scanner.close();
     }
 }

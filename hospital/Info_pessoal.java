@@ -1,5 +1,6 @@
 package hospital;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -56,6 +57,15 @@ public class Info_pessoal {
 
     public void setTipo_sangue(String tipo_sangue) {
         this.tipo_sangue = tipo_sangue;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome +
+                "\nNascimento: " + new SimpleDateFormat("dd'/'MMMM'/'yyyy").format(data_nascimento)
+                + "\nId: " + id +
+                "\nTipo sanguineo: " + tipo_sangue
+                + "\nAlergias: " + alergia;
     }
 
 }
