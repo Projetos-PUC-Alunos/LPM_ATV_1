@@ -10,15 +10,15 @@ import Estudante.Aluno;
 
 public class Consulta implements Serializable {
     private int id;
-    private String medico;
+    private Medico medico;
+    private PerfilPaciente paciente;
     private Date data;
-    private ArrayList<Consulta> consultasAnteriores;
 
-    public Consulta(int id, String medico, Date data, ArrayList<Consulta> consultasAnteriores) {
+    public Consulta(int id, Medico medico, Date data, PerfilPaciente paciente) {
         this.id = id;
         this.data = data;
         this.medico = medico;
-        this.consultasAnteriores = consultasAnteriores;
+        this.paciente = paciente;
     }
 
     public Date getData() {
@@ -37,42 +37,26 @@ public class Consulta implements Serializable {
         this.id = id;
     }
 
-    public void setMedico(String medico) {
+    public void setMedico(Medico medico) {
         this.medico = medico;
     }
 
-    public String getMedico() {
+    public Medico getMedico() {
         return medico;
     }
 
-    public void ConsultasAnterioresList() {
-        consultasAnteriores = new ArrayList<Consulta>();
+    public void setPaciente(PerfilPaciente paciente) {
+        this.paciente = paciente;
     }
 
-    public Consulta getConsultaByID(int id) {
-        for (Consulta consulta : consultasAnteriores) {
-            if (consulta.getId() == id) {
-                return consulta;
-            }
-        }
-        return null;
+    public PerfilPaciente getPaciente() {
+        return paciente;
     }
 
-    public void updateInfo(String medico, Date data) {
-        this.data = data;
+    public void updateInfo(Medico medico, Date data, PerfilPaciente paciente) {
         this.medico = medico;
-    }
-
-    public Consulta addConsulta(Consulta consulta) {
-        consultasAnteriores.add(consulta);
-        return consulta;
-    }
-
-    public void removeConsulta(int id) {
-        Consulta consulta = getConsultaByID(id);
-        if (consulta != null) {
-            consultasAnteriores.remove(consulta);
-        }
+        this.data = data;
+        this.paciente = paciente;
     }
 
     @Override
