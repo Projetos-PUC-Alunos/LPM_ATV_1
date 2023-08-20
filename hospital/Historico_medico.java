@@ -1,5 +1,6 @@
 package hospital;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,24 +15,8 @@ public class Historico_medico {
         this.consultasAnteriores = consultasAnteriores;
     }
 
-    public String getCirurgias() {
-        return cirurgias;
-    }
-
-    public void setCirurgias(String cirurgias) {
-        this.cirurgias = cirurgias;
-    }
-
-    public String getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(String medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
-    public void ConsultasAnterioresList() {
-        consultasAnteriores = new ArrayList<Consulta>();
+    public ArrayList<Consulta> getConsultasAnteriores() {
+        return consultasAnteriores;
     }
 
     public Consulta getConsultaByID(int id) {
@@ -54,13 +39,4 @@ public class Historico_medico {
             consultasAnteriores.remove(consulta);
         }
     }
-
-    public ArrayList<Consulta> getConsultasAnteriores() {
-        return consultasAnteriores;
-    }
-
-    public void setConsultasAnteriores(ArrayList<Consulta> consultasAnteriores) {
-        this.consultasAnteriores = consultasAnteriores;
-    }
-
 }
